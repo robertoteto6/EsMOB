@@ -1,6 +1,6 @@
 import { mockMatches, mockGames } from './mockData';
 
-const API_KEY = '6k6pV44KHnT7EPdG2Z4SVoxFfVy_9zGozehIU7D6gP9AIpI5_UU';
+const API_KEY = import.meta.env.VITE_PANDASCORE_API_KEY || '';
 const BASE_URL = 'https://api.pandascore.co';
 const USE_MOCK_DATA = false; // Set to true to use mock data
 

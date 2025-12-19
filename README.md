@@ -23,6 +23,11 @@ Una aplicación web moderna para ver resultados de esports en tiempo real, simil
 # Instalar dependencias
 npm install
 
+# Configurar la API key
+# Copia .env.example a .env y añade tu API key de PandaScore
+cp .env.example .env
+# Edita .env y añade tu API key: VITE_PANDASCORE_API_KEY=tu_api_key_aqui
+
 # Ejecutar en modo desarrollo
 npm run dev
 
@@ -50,6 +55,14 @@ La aplicación se ejecuta por defecto en `http://localhost:3000`
 ## 🔑 API
 
 La aplicación utiliza la API de PandaScore para obtener datos de esports en tiempo real.
+
+### Configuración
+1. Obtén una API key gratuita de [PandaScore](https://pandascore.co)
+2. Crea un archivo `.env` en la raíz del proyecto
+3. Añade tu API key: `VITE_PANDASCORE_API_KEY=tu_api_key_aqui`
+
+### Modo Fallback
+Si la API no está disponible o hay errores de conexión, la aplicación automáticamente utiliza datos de ejemplo (mock data) para demostración.
 
 ## 📱 Responsive Design
 
