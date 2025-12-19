@@ -16,7 +16,7 @@ const UnifiedHeader = ({ selectedGame, onGameChange, games, activeTab, onTabChan
     setIsGameSelectorOpen(false);
   };
 
-  const selectedGameData = games.find(g => g.id === parseInt(selectedGame));
+  const selectedGameData = selectedGame ? games.find(g => g.id.toString() === selectedGame) : null;
 
   return (
     <header className="unified-header">
