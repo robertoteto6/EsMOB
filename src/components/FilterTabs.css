@@ -1,16 +1,17 @@
 .filter-tabs-container {
-  background: white;
-  border-bottom: 1px solid #e2e8f0;
-  position: sticky;
-  top: 88px;
+  background: rgba(255, 255, 255, 0.06);
+  border-bottom: none;
+  position: static;
   z-index: 90;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 0.25rem 0.5rem;
 }
 
 .filter-tabs {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
   display: flex;
   gap: 0.5rem;
   overflow-x: auto;
@@ -22,29 +23,33 @@
 }
 
 .tab-button {
-  background: transparent;
-  border: none;
-  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.85rem 1.25rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   font-size: 1rem;
   font-weight: 500;
-  color: #718096;
+  color: #e6e8f5;
   border-bottom: 3px solid transparent;
   transition: all 0.3s ease;
   white-space: nowrap;
+  border-radius: 12px;
 }
 
 .tab-button:hover {
-  color: #667eea;
-  background: rgba(102, 126, 234, 0.05);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .tab-button.active {
-  color: #667eea;
-  border-bottom-color: #667eea;
+  color: #0f172a;
+  background: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 10px 25px rgba(16, 24, 40, 0.12);
 }
 
 .tab-icon {
@@ -57,7 +62,7 @@
 
 @media (max-width: 768px) {
   .filter-tabs-container {
-    top: 120px;
+    top: auto;
   }
 
   .filter-tabs {

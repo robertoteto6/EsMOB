@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
-import FilterTabs from './components/FilterTabs';
 import MatchList from './components/MatchList';
 import { pandascoreAPI } from './services/pandascore';
 import './App.css';
@@ -78,8 +77,6 @@ function App() {
         selectedGame={selectedGame}
         onGameChange={handleGameChange}
         games={games}
-      />
-      <FilterTabs 
         activeTab={activeTab}
         onTabChange={handleTabChange}
       />
