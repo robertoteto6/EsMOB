@@ -1,0 +1,22 @@
+{
+  "name": "esmob",
+  "version": "1.0.0",
+  "description": "Plataforma web para ver resultados de esports en tiempo real",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": ["esports", "pandascore", "gaming", "results"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.2",
+    "vite": "^7.3.0"
+  }
+}
