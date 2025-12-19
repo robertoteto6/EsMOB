@@ -4,19 +4,22 @@ const API_KEY = import.meta.env.VITE_PANDASCORE_API_KEY || '';
 const BASE_URL = 'https://api.pandascore.co';
 const USE_MOCK_DATA = false; // Set to true to use mock data
 
+// Helper function to filter mock matches by game
+const filterMatchesByGame = (matches, gameId) => {
+  if (!gameId) return matches;
+  
+  const gameName = mockGames.find(g => g.id === parseInt(gameId))?.name;
+  if (!gameName) return matches;
+  
+  return matches.filter(m => m.videogame.name === gameName);
+};
+
 export const pandascoreAPI = {
   async getMatches(game = null, page = 1, perPage = 20) {
     if (USE_MOCK_DATA) {
       return new Promise((resolve) => {
         setTimeout(() => {
-          let filtered = [...mockMatches];
-          if (game) {
-            // Find game name from mockGames by ID
-            const gameName = mockGames.find(g => g.id === parseInt(game))?.name;
-            if (gameName) {
-              filtered = filtered.filter(m => m.videogame.name === gameName);
-            }
-          }
+          const filtered = filterMatchesByGame([...mockMatches], game);
           resolve(filtered);
         }, 500);
       });
@@ -44,14 +47,7 @@ export const pandascoreAPI = {
     } catch (error) {
       console.error('Error fetching matches, falling back to mock data:', error);
       // Fallback to mock data on error
-      let filtered = [...mockMatches];
-      if (game) {
-        // Find game name from mockGames by ID
-        const gameName = mockGames.find(g => g.id === parseInt(game))?.name;
-        if (gameName) {
-          filtered = filtered.filter(m => m.videogame.name === gameName);
-        }
-      }
+      const filtered = filterMatchesByGame([...mockMatches], game);
       return filtered;
     }
   },
@@ -60,13 +56,8 @@ export const pandascoreAPI = {
     if (USE_MOCK_DATA) {
       return new Promise((resolve) => {
         setTimeout(() => {
-          let filtered = mockMatches.filter(m => m.status === 'not_started');
-          if (game) {
-            const gameName = mockGames.find(g => g.id === parseInt(game))?.name;
-            if (gameName) {
-              filtered = filtered.filter(m => m.videogame.name === gameName);
-            }
-          }
+          const upcoming = mockMatches.filter(m => m.status === 'not_started');
+          const filtered = filterMatchesByGame(upcoming, game);
           resolve(filtered);
         }, 500);
       });
@@ -95,13 +86,8 @@ export const pandascoreAPI = {
     } catch (error) {
       console.error('Error fetching upcoming matches, falling back to mock data:', error);
       // Fallback to mock data
-      let filtered = mockMatches.filter(m => m.status === 'not_started');
-      if (game) {
-        const gameName = mockGames.find(g => g.id === parseInt(game))?.name;
-        if (gameName) {
-          filtered = filtered.filter(m => m.videogame.name === gameName);
-        }
-      }
+      const upcoming = mockMatches.filter(m => m.status === 'not_started');
+      const filtered = filterMatchesByGame(upcoming, game);
       return filtered;
     }
   },
@@ -110,13 +96,8 @@ export const pandascoreAPI = {
     if (USE_MOCK_DATA) {
       return new Promise((resolve) => {
         setTimeout(() => {
-          let filtered = mockMatches.filter(m => m.status === 'finished');
-          if (game) {
-            const gameName = mockGames.find(g => g.id === parseInt(game))?.name;
-            if (gameName) {
-              filtered = filtered.filter(m => m.videogame.name === gameName);
-            }
-          }
+          const past = mockMatches.filter(m => m.status === 'finished');
+          const filtered = filterMatchesByGame(past, game);
           resolve(filtered);
         }, 500);
       });
@@ -145,13 +126,8 @@ export const pandascoreAPI = {
     } catch (error) {
       console.error('Error fetching past matches, falling back to mock data:', error);
       // Fallback to mock data
-      let filtered = mockMatches.filter(m => m.status === 'finished');
-      if (game) {
-        const gameName = mockGames.find(g => g.id === parseInt(game))?.name;
-        if (gameName) {
-          filtered = filtered.filter(m => m.videogame.name === gameName);
-        }
-      }
+      const past = mockMatches.filter(m => m.status === 'finished');
+      const filtered = filterMatchesByGame(past, game);
       return filtered;
     }
   },
