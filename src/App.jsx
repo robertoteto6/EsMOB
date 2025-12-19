@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Header from './components/Header';
-import FilterTabs from './components/FilterTabs';
+import UnifiedHeader from './components/UnifiedHeader';
 import MatchList from './components/MatchList';
 import { pandascoreAPI } from './services/pandascore';
 import './App.css';
@@ -74,12 +73,10 @@ function App() {
 
   return (
     <div className="app">
-      <Header 
+      <UnifiedHeader 
         selectedGame={selectedGame}
         onGameChange={handleGameChange}
         games={games}
-      />
-      <FilterTabs 
         activeTab={activeTab}
         onTabChange={handleTabChange}
       />

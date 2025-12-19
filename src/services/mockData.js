@@ -208,11 +208,46 @@ export const mockMatches = [
 ];
 
 export const mockGames = [
-  { id: 1, name: "League of Legends" },
-  { id: 2, name: "CS:GO" },
-  { id: 3, name: "Dota 2" },
-  { id: 4, name: "Valorant" },
-  { id: 5, name: "Overwatch 2" },
-  { id: 6, name: "Rainbow Six Siege" },
-  { id: 7, name: "Rocket League" },
+  { 
+    id: 1, 
+    name: "League of Legends",
+    slug: "lol",
+    logo_url: "https://cdn.pandascore.co/images/league-of-legend/image/image-1561378837713.png"
+  },
+  { 
+    id: 2, 
+    name: "CS:GO",
+    slug: "csgo",
+    logo_url: "https://cdn.pandascore.co/images/csgo/image/image-1561379126259.png"
+  },
+  { 
+    id: 3, 
+    name: "Dota 2",
+    slug: "dota2",
+    logo_url: "https://cdn.pandascore.co/images/dota-2/image/image-1561378948682.png"
+  },
+  { 
+    id: 4, 
+    name: "Valorant",
+    slug: "valorant",
+    logo_url: "https://cdn.pandascore.co/images/valorant/image/image-1590168813321.png"
+  },
+  { 
+    id: 5, 
+    name: "Overwatch 2",
+    slug: "ow",
+    logo_url: "https://cdn.pandascore.co/images/overwatch/image/image-1561379167217.png"
+  },
+  { 
+    id: 6, 
+    name: "Rainbow Six Siege",
+    slug: "r6siege",
+    logo_url: "https://cdn.pandascore.co/images/rainbow-six-siege/image/image-1561379193953.png"
+  },
+  { 
+    id: 7, 
+    name: "Rocket League",
+    slug: "rl",
+    logo_url: "https://cdn.pandascore.co/images/rocket-league/image/image-1561379208530.png"
+  },
 ];
